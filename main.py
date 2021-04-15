@@ -61,7 +61,14 @@ def login():
 
 
 @app.route('/signup', methods=['GET', 'POST'])
-def signup():
+def signup() -> redirect:
+
+    """
+
+    Returns:
+
+    """
+
     if request.method == 'POST':
         name = request.form['name']
         password = request.form['pass']
