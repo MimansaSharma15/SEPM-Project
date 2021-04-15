@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/home.css">
+    <link rel="stylesheet" href="../static/ayurvedic.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,700&display=swap" rel="stylesheet">
     <title>Home</title>
 </head>
 <body>
+    
+    <!-- Header begins -->
+
+
     <section id="header">
         <div class="header container">
             <div class="nav-bar">
@@ -17,25 +21,25 @@
                 <div class="nav-list">
                     <div class="hamburger"><div class="bar"></div></div>
                     <ul>
-                        <li><a href="allopathic.html" data-after="Home">Allopathic</a></li>
-                        <li><a href="ayurvedic.html" data-after="About">Ayurvedic</a></li>
-                        <li><a href="login.html" data-after="Contact">Logout</a></li>
+                        <li><a href="/allo" data-after="Home">Allopathic</a></li>
+                        <li><a href="/ayur" data-after="About">Ayurvedic</a></li>
+                        <li><a href="/" data-after="Contact">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-<!-- About Section -->
+    <!-- Header ends -->
 
-<section id="about">
-    <div class="about container">
-        
 
-        <div class="col-right">
-           
-            <h1 class="section-title"><span style="color: white;">Medicine Recommendation </span><span>System</span></h1>
+  <!-- Hero Section  -->
+    <section id="hero">
+
+        <div class="hero container">
+            <div>
+                <h1 class="section-title"><span style="color: white;"></h1>
         
-              <h2>Your one stop solution For all your problems </h2>
+              <h3  class="section-title"><span style="color: white;">Medicine Recommendation </span><span>System</span> </h3>
              
              
              <p>
@@ -49,8 +53,12 @@
                 We not only provide the option for finding Allopathic medicines but an additional feature to the above mentioned objective is that our website also gives ayurvedic recommendations for the
                 same.              
              </p>
-             <a href="ayurvedic.html" class="cta" style="margin-top: 5px;color: white;">Get Started!!</a>
-          </div>
-    </div>
-</section>
-<!--End About Section -->
+             <a href="/ayur" class="cta" style="margin-top: 5px;color: white;">Get Started!!</a>
+       
+      </div>
+      <div class="gif">
+        <img src="../static/images/doctor.gif" style="margin-left: 100px;width: 500px;height: 500px;">
+      </div>
+    </section>
+    
+  <!-- End Hero Section  -->
