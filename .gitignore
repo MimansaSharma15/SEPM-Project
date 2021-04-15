@@ -5,6 +5,11 @@ __pycache__/
 
 # C extensions
 *.so
+# MY STUFF
+/medrec/data/medicine_ayur.json
+/medrec/data/.ipynb_checkpoints
+/medrec/API/__pycache__/getdata.cpython-38.pyc
+/medrec/API/__pycache__/getdata.cpython-39.pyc
 
 # Distribution / packaging
 .Python
