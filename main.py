@@ -7,6 +7,7 @@ from flask import (
     g,
 )
 
+from medrec.data.get_data import CustomData
 from medrec.models import (
     users
 )
@@ -18,7 +19,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = secret_key
 
 users.make_db()
-
+data = CustomData(path='medrec/data/medicine_ayur.json')
 
 @app.before_request
 def security():
@@ -27,8 +28,6 @@ def security():
     request made
     """
     g.user = None
-    for i in session:
-        print(session[i])
     if 'user_email' in session:
         emails = users.getemail()
         try:
@@ -101,10 +100,18 @@ def allo():
     return redirect('/')
 
 
-@app.route('/ayur')
+@app.route('/ayur', methods=['GET', 'POST'])
 def ayur():
     if g.user:
-        return render_template('ayurvedic.html')
+        if request.method == 'POST':
+            print("getting data")
+            symptom = request.form['symp']
+            if len(symptom) > 1:
+                medicine = data.search_med(symptom)
+                return render_template('ayurvedic.html' ,med=medicine)
+
+        return render_template('ayurvedic.html', med="")
+
     return redirect('/')
 
 

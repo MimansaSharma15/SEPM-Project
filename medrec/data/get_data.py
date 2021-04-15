@@ -33,6 +33,8 @@ class CustomData:
             if num == num_sym:
                 return med
 
+        return "Medicine not Found"
+
 
 if __name__ == '__main__':
     data = CustomData(path='medicine_ayur.json')

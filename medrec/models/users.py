@@ -30,7 +30,6 @@ def check_pwd(email: str, password: str) -> bool:
     cur.execute(sql)
 
     if cur.fetchone():
-        print("correct password")
         return True
 
     return False

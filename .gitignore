@@ -10,6 +10,7 @@ __pycache__/
 /medrec/data/.ipynb_checkpoints
 /medrec/API/__pycache__/getdata.cpython-38.pyc
 /medrec/API/__pycache__/getdata.cpython-39.pyc
+db.sqlite
 
 # Distribution / packaging
 .Python
