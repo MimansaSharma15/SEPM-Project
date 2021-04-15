@@ -11,13 +11,13 @@
 	<link rel="stylesheet" type="text/css" href="../static/main.css">
 </head>
 <body style="background-color: #c2adc5;">
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="login100-more" style="background-image: url('../static/images/Medicine-rafiki.png');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-50 p-b-50">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-title p-b-59">
 						Medicine Recommendation System
 					</span>
@@ -44,9 +44,14 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter password again">
+
 						<span class="label-input100">Confirm Password</span>
-						<input class="input100" type="text" name="repeat-pass" placeholder="Confirm Password">
+
+						<input class="input100" type="text" name="repeat_password" placeholder="Confirm Password">
 						<span class="focus-input100"></span>
+
+						<h3>{{error}}</h3>
+
 					</div>
 
 
@@ -58,7 +63,7 @@
 							</button>
 						</div>
 
-						<a href="login.html" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+						<a href="/" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
 							Already a member?
 							<i class="fa fa-long-arrow-right m-l-5"></i>
 						</a>
@@ -67,4 +72,7 @@
 			</div>
 		</div>
 	</div>
+
 </body>
+
+</html>
