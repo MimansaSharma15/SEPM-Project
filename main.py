@@ -9,6 +9,8 @@ from flask import (
 )
 
 from medrec.data.get_data import CustomData
+from medrec.data.get_data_allo import CustomAllo
+
 from medrec.models import (
     users
 )
@@ -21,6 +23,10 @@ app.secret_key = secret_key
 
 users.make_db()
 data = CustomData(path='medrec/data/medicine_ayur.json')
+data_allo = CustomAllo(path='medrec/data/allo.json')
+
+allo_med = ''
+ayur_med = ''
 
 
 @app.before_request
@@ -94,9 +100,15 @@ def home():
     return redirect('/')
 
 
-@app.route('/allo')
+@app.route('/allo', methods=['GET', 'POST'])
 def allo():
     if g.user:
+        global allo_med
+        if request.method == 'POST':
+            symptom = request.form['symp']
+            allo_med = data_allo.search_symp(symptom)
+            return redirect(url_for('success'))
+
         return render_template('allopathic.html')
     return redirect('/')
 
@@ -104,15 +116,14 @@ def allo():
 @app.route('/ayur', methods=['GET', 'POST'])
 def ayur():
     if g.user:
-        global meds
-        meds = ""
+        global ayur_med
         if request.method == 'POST':
             meds = " "
-            symptom = request.form['symp']
+            symptom = request.form['symp'].lower()
 
             print("QUERRYING DB")
             medicine = data.search_med(symptom)
-            meds = medicine
+            ayur_med = medicine
 
             return redirect(url_for("success"))
 
@@ -123,9 +134,22 @@ def ayur():
 
 @app.route('/success', methods=['GET', 'POST'])
 def success():
+    global meds
+    global allo_med
+    global ayur_med
+
+    meds = ''
     if g.user:
         if request.method == 'POST':
-            return redirect(url_for('ayur'))
+            return redirect(url_for('home'))
+
+        if allo_med:
+            meds = allo_med
+        elif ayur_med:
+            meds = ayur_med
+
+        allo_med = None
+        ayur_med = None
 
         return render_template('success.html', med=meds)
     return redirect('/')
