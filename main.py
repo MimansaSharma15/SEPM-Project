@@ -5,6 +5,7 @@ from flask import (
     render_template,
     session,
     g,
+    url_for,
 )
 
 from medrec.data.get_data import CustomData
@@ -20,6 +21,7 @@ app.secret_key = secret_key
 
 users.make_db()
 data = CustomData(path='medrec/data/medicine_ayur.json')
+
 
 @app.before_request
 def security():
@@ -61,7 +63,6 @@ def login():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup() -> redirect:
-
     """
 
     Returns:
@@ -103,15 +104,30 @@ def allo():
 @app.route('/ayur', methods=['GET', 'POST'])
 def ayur():
     if g.user:
+        global meds
+        meds = ""
         if request.method == 'POST':
-            print("getting data")
+            meds = " "
             symptom = request.form['symp']
-            if len(symptom) > 1:
-                medicine = data.search_med(symptom)
-                return render_template('ayurvedic.html' ,med=medicine)
 
-        return render_template('ayurvedic.html', med="")
+            print("QUERRYING DB")
+            medicine = data.search_med(symptom)
+            meds = medicine
 
+            return redirect(url_for("success"))
+
+        return render_template('ayurvedic.html')
+
+    return redirect('/')
+
+
+@app.route('/success', methods=['GET', 'POST'])
+def success():
+    if g.user:
+        if request.method == 'POST':
+            return redirect(url_for('ayur'))
+
+        return render_template('ayurvedic.html', med=meds)
     return redirect('/')
 
 
