@@ -15,8 +15,9 @@ class CustomData:
         Returns:
              sym
         """
+        symptom = symptom.lower()
         for num, sym in self.data['Symptom'].items():
-            if sym == symptom:
+            if sym.lower() == symptom:
                 return num
 
     def search_med(self, symp: str) -> str:
