@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/ayurvedic.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,700&display=swap" rel="stylesheet">
+    <title>Ayurvedic</title>
+</head>
+<body>
+
+    <!-- Header begins -->
+<style>
+    input[type=text]{
+    width:100%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+
+  input[type=text]:focus{
+    border-color:#440a67;
+    box-shadow:0 0 8px 0 #440a67;
+  }
+</style>
+
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#hero"><h1><span>Medicine </span>Recommendation</h1></a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger"><div class="bar"></div></div>
+                    <ul>
+                        <li><a href="/index" data-after="Home">Home</a></li>
+                        <li><a href="/allo" data-after="About">Allopathic</a></li>
+                        <li><a href="/" data-after="Contact">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Header ends -->
+
+
+  <!-- Hero Section  -->
+    <section id="hero">
+
+        <div class="hero container">
+            <div>
+                <h1>Enter your Symptoms <span></span></h1>
+        <h1>for the problem's <span></span></h1>
+        <h1>Ayurvedic Solution<span></span></h1>
+<!--        <form id="sympform" action="" method="post" >-->
+<!--            <label for="symptoms" style="font-size: x-large; color: #440a67;">Symptoms</label>-->
+<!--            <input type="text" id="symp" name="symp" style="	outline: none; border: none;"><br><br>-->
+<!--            <button class="cta" style="margin-top: 10px;" type="submit" name="b">Search</button>-->
+<!--        </form>-->
+
+
+<!--<script>-->
+<!--        function apicall(){-->
+<!--            var action_src = document.getElementById("symp").value-->
+<!--            var sympform = document.getElementById('sympform');-->
+
+<!--            sympform.action = "http://localhost:8000"-->
+<!--        }-->
+<!--</script>-->
+
+<!--        <textarea id="ayur" name="ayur" rows="4" cols="50" style="margin-top: 50px;">-->
+
+<!--        </textarea>-->
+                <h1>{{med}}</h1>
+      </div>
+      <div class="gif">
+        <img src="../static/images/ayurvedic.gif" style="margin-left: 100px;width: 500px;height: 500px;">
+      </div>
+    </section>
+
+  <!-- End Hero Section  -->
+
+
