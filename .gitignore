@@ -11,7 +11,8 @@ __pycache__/
 /medrec/API/__pycache__/getdata.cpython-38.pyc
 /medrec/API/__pycache__/getdata.cpython-39.pyc
 db.sqlite
-
+/medrec/data/allo.json
+/medrec/data/Antibiotic - DB.xlsx
 # Distribution / packaging
 .Python
 build/
