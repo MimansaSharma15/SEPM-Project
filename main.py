@@ -127,7 +127,7 @@ def success():
         if request.method == 'POST':
             return redirect(url_for('ayur'))
 
-        return render_template('ayurvedic.html', med=meds)
+        return render_template('success.html', med=meds)
     return redirect('/')
 
 
