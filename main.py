@@ -8,6 +8,7 @@ from flask import (
     url_for,
 )
 
+from medrec.ML.rake_text import final_out
 import configparser
 
 from medrec.data.data import CustomData
@@ -110,6 +111,7 @@ def allo():
         global allo_med
         if request.method == 'POST':
             symptom = request.form['symp']
+
             allo_med = data.search_allo(symptom)
             return redirect(url_for('success'))
 

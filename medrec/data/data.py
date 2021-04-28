@@ -1,4 +1,5 @@
 import json
+from medrec.ML.rake_text import final_out
 
 
 class CustomData:
@@ -35,6 +36,7 @@ class CustomData:
         Returns:
             med
         """
+
         for num, med in self.data_ay['English common name of herbal substance'].items():
             num_sym = self.search_sym(symp)
             if num == num_sym:
@@ -52,6 +54,6 @@ class CustomData:
 
 
 if __name__ == '__main__':
-    data = CustomData(path_ay='medicine_ayur.json' ,path_allo='allo.json')
+    data = CustomData(path_ay='medicine_ayur.json', path_allo='allo.json')
     print(data.search_med('Urinary tract and genital disorders'))
     print(data.search_allo('cough, chest pains and an accompanying shortness of breath'))
