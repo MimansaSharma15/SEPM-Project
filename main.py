@@ -8,22 +8,27 @@ from flask import (
     url_for,
 )
 
-from medrec.data.get_data import CustomData
-from medrec.data.get_data_allo import CustomAllo
+from medrec.ML.rake_text import final_out
+import configparser
 
+from medrec.data.data import CustomData
 from medrec.models import (
     users
 )
 
-secret_key = 'i love you'
+cfg = configparser.ConfigParser()
+cfg.read('config.cfg')
+key = cfg.get("SECRET KEY", "key")
+
+secret_key = key
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 app.secret_key = secret_key
 
 users.make_db()
-data = CustomData(path='medrec/data/medicine_ayur.json')
-data_allo = CustomAllo(path='medrec/data/allo.json')
+data = CustomData(path_ay='medrec/data/medicine_ayur.json',
+                  path_allo='medrec/data/allo.json')
 
 allo_med = ''
 ayur_med = ''
@@ -106,7 +111,8 @@ def allo():
         global allo_med
         if request.method == 'POST':
             symptom = request.form['symp']
-            allo_med = data_allo.search_symp(symptom)
+
+            allo_med = data.search_allo(symptom)
             return redirect(url_for('success'))
 
         return render_template('allopathic.html')
@@ -134,7 +140,6 @@ def ayur():
 
 @app.route('/success', methods=['GET', 'POST'])
 def success():
-    global meds
     global allo_med
     global ayur_med
 
