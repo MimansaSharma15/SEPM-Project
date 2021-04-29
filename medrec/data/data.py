@@ -1,5 +1,7 @@
 import json
 from medrec.ML.rake_text import final_out
+from nltk.corpus import stopwords
+from collections import Counter
 
 
 class CustomData:
@@ -15,6 +17,7 @@ class CustomData:
         with open(self.path_allo) as f:
             f = f.read()
             self.data_allo = json.loads(f)
+        self.stopwords = stopwords.words('english')
 
     def search_sym(self, symptom: str) -> str:
         """
@@ -23,6 +26,14 @@ class CustomData:
              sym
         """
         symptom = symptom.lower()
+
+        if len(symptom) > 100:
+            keywords = set(final_out(symptom))
+            for num, sym in self.data_ay['Symptom'].items():
+                sym = set(sym)
+                if sym & keywords:
+                    return num
+
         for num, sym in self.data_ay['Symptom'].items():
             if sym.lower() == symptom:
                 return num
