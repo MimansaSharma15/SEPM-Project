@@ -13,6 +13,7 @@ __pycache__/
 db.sqlite
 /medrec/data/allo.json
 /medrec/data/Antibiotic - DB.xlsx
+medrec/models/__pycache__/users.cpython-39.pyc
 # Distribution / packaging
 .Python
 build/

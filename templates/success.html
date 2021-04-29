@@ -39,6 +39,7 @@
                     <ul>
                         <li><a href="/index" data-after="Home">Home</a></li>
                         <li><a href="/allo" data-after="About">Allopathic</a></li>
+                        <li><a href="/ayur" data-after="About">Ayurvedic</a></li>
                         <li><a href="/" data-after="Contact">Logout</a></li>
                     </ul>
                 </div>
@@ -53,9 +54,9 @@
 
         <div class="hero container">
             <div>
-                <h1>Enter your Symptoms <span></span></h1>
-        <h1>for the problem's <span></span></h1>
-        <h1>Ayurvedic Solution<span></span></h1>
+                <h1>The Ayurvedic solution <span></span></h1>
+        <h1>for your problem is <span></span></h1>
+        
 <!--        <form id="sympform" action="" method="post" >-->
 <!--            <label for="symptoms" style="font-size: x-large; color: #440a67;">Symptoms</label>-->
 <!--            <input type="text" id="symp" name="symp" style="	outline: none; border: none;"><br><br>-->
@@ -76,6 +77,8 @@
 
 <!--        </textarea>-->
                 <h1>{{med}}</h1>
+                <br><br>
+                <button class="cta" onclick="goBack()">Go Back</button>
       </div>
       <div class="gif">
         <img src="../static/images/ayurvedic.gif" style="margin-left: 100px;width: 500px;height: 500px;">
@@ -83,5 +86,10 @@
     </section>
 
   <!-- End Hero Section  -->
-
-
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>
+</body>
+</html>
