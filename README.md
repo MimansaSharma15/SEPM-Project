@@ -103,6 +103,22 @@ Mimansa Sharma
 </p>
 </td>
 
+  
+<td>
+
+Aradhya Tripathi
+
+<p align="center">
+<img src = "https://avatars.githubusercontent.com/Aradhya-Tripathi"  height="120" alt="Rusali Saha">
+</p>
+<p align="center">
+<a href = "https://github.com/Aradhya-Tripathi"><img src = "https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-github-1.png" width="36" height = "36"/></a>
+<a href = "https://www.linkedin.com/in/aradhya-tripathi51/">
+<img src = "https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-linkedin-2.png" width="36" height="36"/>
+</a>
+</p>
+</td>
+
 <td>
 
 Sanjana Singh
